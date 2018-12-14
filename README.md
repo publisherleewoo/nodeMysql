@@ -13,14 +13,14 @@ var connection = mysql.createConnection({
   database : 'my_db'
 });
  
-connection.connect();
- 
+// connection.connect();   
+// 암묵적으로 연결하기때문에 connect와 end는 써줄필요없다.  사용시 두번의 접속시에 에러가난다. 
 connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
   if (error) throw error;
   console.log('The solution is: ', results[0].solution);
 });
  
-connection.end();
+// connection.end();
 
 ```
 
